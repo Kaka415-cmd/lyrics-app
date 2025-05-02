@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Love You</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Love you syg</h1>
+      <img src="IMG-20250502-WA0031.jpg" alt="Raim Laode" class="gambar" />
+
+      <audio id="audio" src="lesungpipi.mp3" autoplay muted playsinline></audio>
+
+      <div id="lyrics" class="lirik"></div>
+      <button id="playPauseBtn">Putar</button>
+    </div>
+
+    <script>
+      // Coba aktifkan audio jika autoplay diblokir
+      window.addEventListener("DOMContentLoaded", () => {
+        const audio = document.getElementById("audio");
+        audio.muted = false; // aktifkan suara
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log("Audio diputar otomatis");
+            })
+            .catch((error) => {
+              console.log("Autoplay gagal, perlu interaksi pengguna:", error);
+            });
+        }
+      });
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
